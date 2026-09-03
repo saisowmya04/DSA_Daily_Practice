@@ -68,10 +68,12 @@ public class DateTimeP {
 		ZonedDateTime usa=ZonedDateTime.now(ZoneId.of("America/New_York"));
 		System.out.println(usa);
 		
+		
 		/*
 		 * ZonedDateTime england=ZonedDateTime.now(ZoneId.of("England/London"));
 		 * System.out.println(england);
 		 */
+		 
 		
 		//year
 		LocalDateTime idDateTime=LocalDateTime.now();
