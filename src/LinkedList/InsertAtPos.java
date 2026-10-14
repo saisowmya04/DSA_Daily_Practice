@@ -1,13 +1,18 @@
 package LinkedList;
 
-public class Insertion {
+public class InsertAtPos {
 	
-	public ListNode insertAtBeg(ListNode head,int valToInsert) {
+	public ListNode insertAtPos(ListNode head,int valToInsert,int pos) {
 		ListNode newNode=new ListNode(valToInsert);
-		newNode.next=head;
-		head=newNode;
+		ListNode ptr=head;
+		for(int i=0;i<pos-1;i++) {
+			ptr=ptr.next;
+		}
+		newNode.next=ptr.next;
+		ptr.next=newNode;
 		return head;
 	}
+	
 	
 	public void traverse(ListNode head) {
 		ListNode ptr=head;
@@ -16,6 +21,7 @@ public class Insertion {
 			ptr=ptr.next;
 		}
 	}
+	
 	
 	public static void main(String args[]) {
 		//creating nodes
@@ -31,14 +37,15 @@ public class Insertion {
 		l3.next=l4;
 		l4.next=l5;
 		l5.next=null;
-		Insertion i=new Insertion();
-		System.out.println("----- normal traverse ---------");
+		
+		InsertAtPos ip=new InsertAtPos();
+		System.out.println("--------- normal traverse ---------");
 		ListNode head=l1;
-		i.traverse(head);
+		ip.traverse(head);
 		System.out.println();
-		System.out.println("-----insertion at begin --------");
-		head=i.insertAtBeg(l1, 22);
-		i.traverse(head);
+		System.out.println("-----insertion at position --------");
+		head=ip.insertAtPos(l1, 22,2);
+		ip.traverse(head);
 	}
 
 }
